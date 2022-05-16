@@ -8,11 +8,11 @@ async function getAll(_req: Request, res: Response) {
 
 async function create(req: Request, res: Response) {
   const { name, amount } = req.body;
-  await productsService.create({ name, amount });
-  res.status(201);
+  const id = await productsService.create({ name, amount });
+  res.status(201).json({ id, name, amount });
 }
 
-export default {
+export {
   getAll,
   create,
 };
