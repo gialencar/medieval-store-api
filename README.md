@@ -44,7 +44,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   
   * Este projeto é individual
   * São `X` dias de projeto
-  * Data para entrega final do projeto: `16/05/2022 14:00`
+  * Data para entrega final do projeto: `23/05/2022 14:00`
 
 </details>
 
@@ -771,7 +771,7 @@ Ao finalizar e submeter o projeto, não se esqueça de avaliar sua experiência 
     ```json
       {
         "userId": 1,
-        "products": [1],
+        "productsIds": [1],
       }
     ```
 
@@ -780,7 +780,7 @@ Ao finalizar e submeter o projeto, não se esqueça de avaliar sua experiência 
     ```json
       {
         "userId": 1,
-        "products": [1, 2]
+        "productsIds": [1, 2]
       }
     ```
 </details>
