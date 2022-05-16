@@ -8,8 +8,8 @@ async function getAll() {
 }
 
 async function create(product: IProduct) {
-  const [insertId] = await connection.query<ResultSetHeader>(
-    'INSERT INTO Trybesmith.Products VALUES ? ?',
+  const [{ insertId }] = await connection.query<ResultSetHeader>(
+    'INSERT INTO Trybesmith.Products (name, amount) VALUES (?, ?)',
     [product.name, product.amount],
   );
 
