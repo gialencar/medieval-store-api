@@ -1,22 +1,15 @@
-import { ResultSetHeader } from 'mysql2';
 import { IProduct } from '../interfaces/products.interfaces';
-import connection from '../models/connection';
+import * as productModel from '../models/products.model';
 
 async function getAll() {
-  const [products] = await connection.query('SELECT * FROM Trybesmith.Products');
+  const products = await productModel.getAll();
   return products;
 }
 
 async function create(product: IProduct) {
-  const [{ insertId }] = await connection.query<ResultSetHeader>(
-    'INSERT INTO Trybesmith.Products (name, amount) VALUES (?, ?)',
-    [product.name, product.amount],
-  );
+  const insertId = await productModel.create(product);
 
   return insertId;
 }
 
-export {
-  getAll,
-  create,
-};
+export { getAll, create };
