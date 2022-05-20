@@ -6,7 +6,7 @@ export default async function create(user: IUser) {
   await createUser(user);
   const { JWT_SECRET } = process.env;
 
-  const token = jwt.sign(user, JWT_SECRET as string);
+  const token = jwt.sign(user, JWT_SECRET || 'superSecretKey');
 
   return token;
 }
