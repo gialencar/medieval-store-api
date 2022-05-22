@@ -6,10 +6,7 @@
     "editor.selectionBackground": "#3e3e3e",
     "editorCursor.foreground": "#f7f7f7",
     "editorWhitespace.foreground": "#3a3a3a",
-    "input.background": "#1d1d1d",
-    "activityBar.background": "#0E3518",
-    "titleBar.activeBackground": "#134A21",
-    "titleBar.activeForeground": "#F3FCF5"
+    "input.background": "#1d1d1d"
   },
   "cSpell.words": [
     "Trybesmith"

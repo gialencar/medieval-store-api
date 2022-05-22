@@ -1,20 +1,22 @@
-import request from "supertest";
-import app from "../src/app";
-import connection from "../src/models/connection";
-import recreateDatabase from "./recreateDatabase";
+import request from 'supertest';
+import app from '../src/app';
+import connection from '../src/models/connection';
+import recreateDatabase from './recreateDatabase';
 
 require('mysql2/node_modules/iconv-lite').encodingExists('foo');
 
-describe("4 - Crie um endpoint para listar todos os pedidos", () => {
+describe('4 - Crie um endpoint para listar todos os pedidos', () => {
   beforeAll(async () => {
     await recreateDatabase(connection);
   });
   afterAll(() => {
     connection.end();
-  })
+  });
 
   it('Será validado que é possível listar todos os pedidos com sucesso', async () => {
-    const result = await request(app).get("/orders")
+    const result = await request(app).get('/orders');
+
+    console.log(result.body);
 
     expect(result.statusCode).toBe(200);
     expect(result.body).toBeDefined();

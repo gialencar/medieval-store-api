@@ -4,7 +4,15 @@ import connection from './connection';
 
 async function getAll() {
   const [products] = await connection.query('SELECT * FROM Trybesmith.Products');
-  return products;
+  return Object.values(JSON.parse(JSON.stringify(products))) as IProduct[];
+}
+
+async function getProductsByOrderId(orderId: number) {
+  const [products] = await connection.query('SELECT * FROM Trybesmith.Products WHERE orderId = ?', [
+    orderId,
+  ]);
+
+  return Object.values(JSON.parse(JSON.stringify(products))) as IProduct[];
 }
 
 async function create(product: IProduct) {
@@ -16,4 +24,4 @@ async function create(product: IProduct) {
   return insertId;
 }
 
-export { getAll, create };
+export { getAll, create, getProductsByOrderId };
