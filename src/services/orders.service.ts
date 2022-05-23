@@ -1,7 +1,7 @@
-import getAllOrders from '../models/orders.model';
+import { createOrder, getAllOrders } from '../models/orders.model';
 import { getProductsByOrderId } from '../models/products.model';
 
-export default async function index() {
+async function index() {
   const orders = await getAllOrders();
 
   const productsIds = await Promise.all(orders.map(async ({ id }) => getProductsByOrderId(id)));
@@ -16,3 +16,11 @@ export default async function index() {
 
   return result;
 }
+
+async function create(productsIds: number[], username: string) {
+  const result = await createOrder(productsIds, username);
+
+  return result;
+}
+
+export { index, create };
